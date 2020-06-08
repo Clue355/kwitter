@@ -1,6 +1,16 @@
 
+export const GET_MESSAGES = "GET_MESSAGES";
+export const GET_MESSAGES_SUCCESS = "GET_MESSAGES_SUCCESS";
+export const GET_MESSAGES_FAILED = "GET_MESSAGES_FAILED";
+export const GET_USER_MESSAGES = "GET_USER_MESSAGES";
+export const GET_USER_MESSAGES_SUCCESS = "GET_USER_MESSAGES_SUCCESS";
+export const GET_USER_MESSAGES_FAILED = "GET_USER_MESSAGES_FAILED";
+export const UPDATE_MESSAGE = "UPDATE_MESSAGE";
+export const UPDATE_MESSAGE_SUCCESS = "UPDATE_MESSAGE_SUCCESS";
+export const UPDATE_MESSAGE_FAIL = "UPDATE_MESSAGE_FAIL";
+export const DELETE_MESSAGE = "DELETE_MESSAGE";
 
-const getMessages = () => dispatch => {
+export const getMessages = () => dispatch => {
     dispatch({
       type: GET_MESSAGES
     });
@@ -38,7 +48,7 @@ const getMessages = () => dispatch => {
       });
   };
 
-  const getUserMessages = (
+  export const getUserMessages = (
       limit =1000,
       offset = 0,
       userId
@@ -65,7 +75,7 @@ const getMessages = () => dispatch => {
       })
   }
 
-  const updateMessagesByID = dispatch => {
+  export const updateMessagesByID = dispatch => {
       dispatch({
           type: UPDATE_MESSAGES
       })
@@ -86,7 +96,7 @@ const getMessages = () => dispatch => {
       })
   }
 
-  const handleDeleteMessages = messageID => (dispatch, getState) => {
+ export const handleDeleteMessages = messageID => (dispatch, getState) => {
       const tokken = getState().auth.login.tokken
 
       return fetch(url = '/' = messageID, {
@@ -106,7 +116,7 @@ const getMessages = () => dispatch => {
       })
   }
 
-  const getLoggedInUSerMEessages = () => (dispatch, getState) => {
+ export const getLoggedInUSerMEessages = () => (dispatch, getState) => {
       const id = getState().auth.login.id
       dispatch(getUserMessages(1000,0,id))
   }
