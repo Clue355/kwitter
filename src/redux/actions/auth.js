@@ -16,7 +16,7 @@ export const login = (credentials) => async (dispatch, getState) => {
     dispatch({ type: LOGIN });
     const payload = await api.login(credentials);
     // ℹ️ℹ️This is how you woud debug the response to a requestℹ️ℹ️
-    // console.log({ result })
+    console.log({ credentials });
     dispatch({ type: LOGIN_SUCCESS, payload });
   } catch (err) {
     dispatch({
