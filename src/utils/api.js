@@ -37,10 +37,16 @@ class API {
 
   async login({ username, password }) {
     try {
-      const result = await this.axiosInstance.post("/auth/login", {
-        username,
-        password,
-      });
+      const result = await this.axiosInstance
+        .post("/auth/login", {
+          username,
+          password,
+        })
+        .then((response) => {
+          //added code starts here
+          console.log(response);
+          return response;
+        });
       return result;
     } catch (err) {
       // Instructor is logging you out because this failed
