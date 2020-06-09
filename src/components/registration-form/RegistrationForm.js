@@ -14,7 +14,7 @@ export const RegistrationForm = ({ register, login, loading, error }) => {
   const handleRegister = async (event) => {
     event.preventDefault();
     await register(state);
-    //await login(state);
+    //await login(state); //Figure out why this doesnt work*
   };
 
   const handleChange = (event) => {
