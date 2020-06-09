@@ -34,7 +34,6 @@ export const register = (credentials) => async (dispatch, getState) => {
   }
 };
 
-
 export const logout = () => async (dispatch, getState) => {
   try {
     // We do not care about the result of logging out
