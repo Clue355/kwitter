@@ -1,4 +1,4 @@
-import { enhancer } from "./LoginForm.enhancer";
+import { enhancer } from "./RegistrationForm.enhancer";
 import { RegistrationForm } from "./RegistrationForm";
 
-export const RegistrationFormContainer = enhancer(RegistrationForm);
+export const RegistrationContainer = enhancer(RegistrationForm);

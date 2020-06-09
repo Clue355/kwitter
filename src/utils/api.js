@@ -55,6 +55,27 @@ class API {
     }
   }
 
+  async register({ displayName, username, password }) {
+    try {
+      const result = await this.axiosInstance
+        .post("/users", {
+          displayName,
+          username,
+          password,
+        })
+        .then((response) => {
+          //added code starts here
+          console.log(response);
+          return response;
+        });
+      return result;
+    } catch (err) {
+      // Instructor is logging you out because this failed
+      helpMeInstructor(err);
+      return err;
+    }
+  }
+
   async logout() {
     try {
       await this.axiosInstance.get("/auth/logout");
