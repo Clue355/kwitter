@@ -26,6 +26,13 @@ export const login = (credentials) => async (dispatch, getState) => {
   }
 };
 
+export const register = (credentials) => async (dispatch, getState) => {
+  try {
+    await api.register(credentials);
+  } catch (err) {
+    throw err;
+  }
+};
 export const logout = () => async (dispatch, getState) => {
   try {
     // We do not care about the result of logging out
