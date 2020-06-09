@@ -80,7 +80,7 @@ export const RegistrationForm = ({ login, loading, error }) => {
     <React.Fragment>
       <h1>New to Kwitter? Sign up here:</h1>
       <form id="registration-form" onSubmit={handleLogin}>
-      <label htmlFor="displayname">Username</label>
+      <label htmlFor="displayname">Display name</label>
         <input
           type="text"
           name="displayname"
