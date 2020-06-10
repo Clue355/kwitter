@@ -64,7 +64,7 @@ export const RegistrationForm = ({ register, login, loading, error }) => {
 };
 
 RegistrationForm.propTypes = {
-  login: ProptTypes.func.isRequired,
+  register: ProptTypes.func.isRequired,
   loading: ProptTypes.bool,
   error: ProptTypes.string,
 };
