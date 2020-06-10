@@ -49,6 +49,24 @@ class API {
     }
   }
 
+  /*
+    async getMessage({}) {
+    try {
+      const result = await this.axiosInstance.get("messages?limit=100&offset=0", {
+      }).then((response) => {
+          //added code starts here
+          console.log(response);
+          return response;
+        });
+      return result;
+    } catch (err) {
+      // Instructor is logging you out because this failed
+      helpMeInstructor(err);
+      return err;
+    }
+  }
+  */
+
   async logout() {
     try {
       await this.axiosInstance.get("/auth/logout");
