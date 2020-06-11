@@ -1,15 +1,20 @@
 // TODO: implement
-import {MESSAGE_POST, MESSAGE_SUCCESS, MESSAGE_FAIL, GET_MESSAGES_SUCCESS} from '../actions'
+import {
+    GET_MESSAGES,
+    MESSAGE_SUCCESS,
+    MESSAGE_FAILURE
+} from '../actions/messageAction'
 
-const intitialState = {
+
+const initialState = {
     messages: [],
     message_success: false,
     message_fail: false
 }
 
-export default (state= intitialState, action) => {
+export default (state = initialState, action) => {
     switch (action.type) {
-        case GET_MESSAGES_SUCCESS:
+        case GET_MESSAGES:
             return {
                 messages: [...action.payload],
                 message_success: true,
@@ -21,18 +26,11 @@ export default (state= intitialState, action) => {
                     message_success: true,
                     message_fail: false
                 }
-                case MESSAGE_POST:
-                    const newMessage = {...action.payload}
+                case MESSAGE_FAILURE:
                     return {
-                        messages: [newMessage, ...state.messages]
+                        message: [state],
+                        message_success: false,
+                        message_fail: true
                     }
-                    case MESSAGE_FAIL:
-                        return {
-                            messageS: [state],
-                            message_success: false,
-                            message_fail: true
-                        }
-                        default:
-                            return state
     }
 }

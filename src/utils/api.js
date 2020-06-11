@@ -81,7 +81,7 @@ class API {
   //check messages
   async getMessageById ({}) {
     try {
-      const result = await this.axiosInstance.get('/messages/messageId')
+      const result = await this.axiosInstance.get('/messages')
       .then((response)=> {
         console.log(response)
       })
@@ -94,18 +94,45 @@ class API {
 
 
 //delete a message
-  async deleteMessages ({}) {
+  // async deleteMessages ({}) {
+  //   try {
+  //     const result = await this.axiosInstance.delete('/messages/messageid')
+  //     .then((response) => {
+  //       console.log(response)
+  //     })
+  //     return result
+  //   } catch (err) {
+  //     helpMeInstructor(err) 
+  //       return err
+  //   }
+  // }
+
+  async addLike ({}) {
     try {
-      const result = await this.axiosInstance.delete('/messages/messageid')
+      const result = await this.axiosInstance.post('likes')
       .then((response) => {
         console.log(response)
       })
       return result
     } catch (err) {
-      helpMeInstructor(err) 
-        return err
+      helpMeInstructor(err)
+      return err
     }
   }
+
+  async removeLike ({}) {
+    try {
+      const result = await this.axiosInstance.delete('likes')
+      .then((response) => {
+        console.log(response)
+      })
+      return result
+    } catch (err) {
+      helpMeInstructor(err)
+      return err
+    }
+  }
+
 
   async logout() {
     try {
