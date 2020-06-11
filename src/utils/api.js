@@ -76,6 +76,18 @@ class API {
     }
   }
 
+  async profile(username) {
+    try {
+      return await this.axiosInstance
+        .get(`/users/${username}`);
+    } catch (err) {
+      // Instructor is logging you out because this failed
+      helpMeInstructor(err);
+      return err;
+    }
+  }
+
+
   async logout() {
     try {
       await this.axiosInstance.get("/auth/logout");
