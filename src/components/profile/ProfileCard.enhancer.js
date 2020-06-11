@@ -5,6 +5,7 @@ import { profile } from "../../redux/actions/auth";
 const mapStateToProps = (state) => ({
   loading: state.auth.loading,
   error: state.auth.error,
+  username: state.auth.username
 });
 
 // https://react-redux.js.org/using-react-redux/connect-mapdispatch#connect-dispatching-actions-with-mapdispatchtoprops
