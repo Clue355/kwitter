@@ -49,7 +49,7 @@ class API {
     }
   }
 
-  
+  //get a list of messages
     async getMessage({}) {
     try {
       const result = await this.axiosInstance.get("messages?limit=100&offset=0", {
@@ -65,10 +65,10 @@ class API {
       return err;
     }
   }
-
-  async updateMessagesByID ({}) {
+// create a message
+  async postMessages ({}) {
     try {
-      const result = await this.axiosInstance.post('messageid')
+      const result = await this.axiosInstance.post('messages')
       .then((response) => {
         console.log(response)
       })
@@ -78,10 +78,25 @@ class API {
       return err
     }
   } 
-
-  async handleDeleteMessages ({}) {
+  //check messages
+  async getMessageById ({}) {
     try {
-      const result = await this.axiosInstance.delete('messageid')
+      const result = await this.axiosInstance.get('/messages/messageId')
+      .then((response)=> {
+        console.log(response)
+      })
+      return result
+    } catch(err) {
+      helpMeInstructor(err)
+      return err
+    }
+  }
+
+
+//delete a message
+  async deleteMessages ({}) {
+    try {
+      const result = await this.axiosInstance.delete('/messages/messageid')
       .then((response) => {
         console.log(response)
       })
