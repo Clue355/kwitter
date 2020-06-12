@@ -50,50 +50,53 @@ class API {
   }
 
   //get a list of messages
-    async getMessage({}) {
+  async getMessage() {
     try {
-      const result = await this.axiosInstance.get("messages?limit=100&offset=0", {
-      }).then((response) => {
+      const result = await this.axiosInstance
+        .get("messages?limit=100&offset=0", {})
+        .then((response) => {
           //added code starts here
           console.log(response);
           return response;
         });
       return result;
     } catch (err) {
-
       helpMeInstructor(err);
       return err;
     }
   }
-// create a message
-  async postMessages ({}) {
+
+  // create a message
+  async postMessages() {
     try {
-      const result = await this.axiosInstance.post('messages')
-      .then((response) => {
-        console.log(response)
-      })
-      return result
+      const result = await this.axiosInstance
+        .post("messages")
+        .then((response) => {
+          console.log(response);
+        });
+      return result;
     } catch (err) {
-      helpMeInstructor(err)
-      return err
-    }
-  } 
-  //check messages
-  async getMessageById ({}) {
-    try {
-      const result = await this.axiosInstance.get('/messages')
-      .then((response)=> {
-        console.log(response)
-      })
-      return result
-    } catch(err) {
-      helpMeInstructor(err)
-      return err
+      helpMeInstructor(err);
+      return err;
     }
   }
 
+  //check messages
+  async getMessageById() {
+    try {
+      const result = await this.axiosInstance
+        .get("/messages")
+        .then((response) => {
+          console.log(response);
+        });
+      return result;
+    } catch (err) {
+      helpMeInstructor(err);
+      return err;
+    }
+  }
 
-//delete a message
+  //delete a message
   // async deleteMessages ({}) {
   //   try {
   //     const result = await this.axiosInstance.delete('/messages/messageid')
@@ -102,37 +105,36 @@ class API {
   //     })
   //     return result
   //   } catch (err) {
-  //     helpMeInstructor(err) 
+  //     helpMeInstructor(err)
   //       return err
   //   }
   // }
 
-  async addLike ({}) {
+  async addLike({}) {
     try {
-      const result = await this.axiosInstance.post('likes')
-      .then((response) => {
-        console.log(response)
-      })
-      return result
+      const result = await this.axiosInstance.post("likes").then((response) => {
+        console.log(response);
+      });
+      return result;
     } catch (err) {
-      helpMeInstructor(err)
-      return err
+      helpMeInstructor(err);
+      return err;
     }
   }
 
-  async removeLike ({}) {
+  async removeLike({}) {
     try {
-      const result = await this.axiosInstance.delete('likes')
-      .then((response) => {
-        console.log(response)
-      })
-      return result
+      const result = await this.axiosInstance
+        .delete("likes")
+        .then((response) => {
+          console.log(response);
+        });
+      return result;
     } catch (err) {
-      helpMeInstructor(err)
-      return err
+      helpMeInstructor(err);
+      return err;
     }
   }
-
 
   async logout() {
     try {
