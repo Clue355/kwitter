@@ -112,10 +112,10 @@ class API {
   }
 
   // create a message
-  async postMessages() {
+  async postMessages(text) {
     try {
       const result = await this.axiosInstance
-        .post("messages")
+        .post("/messages", { text })
         .then((response) => {
           console.log(response);
         });
