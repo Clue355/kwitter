@@ -110,7 +110,7 @@ class API {
   //   }
   // }
 
-  async addLike({}) {
+  async addLike() {
     try {
       const result = await this.axiosInstance.post("likes").then((response) => {
         console.log(response);
@@ -122,7 +122,7 @@ class API {
     }
   }
 
-  async removeLike({}) {
+  async removeLike() {
     try {
       const result = await this.axiosInstance
         .delete("likes")
