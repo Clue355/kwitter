@@ -10,6 +10,7 @@ export const Menu = ({ isAuthenticated, logout }) => {
       <Navbar.Brand href="/">Kwitter</Navbar.Brand>
       {isAuthenticated && (
         <Nav className="mr-auto">
+          <Link to="/home">Home</Link>
           <Link to="/profile">Profile</Link>
           <Link to="/messagefeed">Message Feed</Link>
           <Link to="/" onClick={logout}>

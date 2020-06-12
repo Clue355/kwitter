@@ -33,6 +33,7 @@ export const Navigation = () => (
           path="/profile"
           component={ProfilePageScreen}
         />
+
         <ConnectedRoute path="*" component={NotFoundScreen} />
       </Switch>
     </Container>
