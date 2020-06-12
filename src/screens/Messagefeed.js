@@ -1,8 +1,8 @@
 import React from "react";
-import { messagesContainer } from "../components/messageComponent/index";
+import { MessagesContainer } from "../components/messageComponent/index";
 
-export const Messagefeed = () => (
+export const MessagesScreen = () => (
   <>
-    <messagesContainer />
+    <MessagesContainer />
   </>
 );
