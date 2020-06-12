@@ -1,11 +1,17 @@
-import { LOGIN, LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT } from "../actions";
+import {
+  LOGIN,
+  LOGIN_SUCCESS,
+  LOGIN_FAILURE,
+  LOGOUT,
+  UPDATE_USER,
+} from "../actions";
 
 // INITIAL STATE
 const INITIAL_STATE = {
   isAuthenticated: false,
-  username: "",
   loading: false,
   error: "",
+  user: null, // https://kwitter-api.herokuapp.com/docs/#/Users/getUser
 };
 
 export const authReducer = (state = INITIAL_STATE, action) => {
@@ -16,11 +22,10 @@ export const authReducer = (state = INITIAL_STATE, action) => {
         loading: true,
       };
     case LOGIN_SUCCESS:
-      const { username, token } = action.payload;
       return {
         ...state,
-        isAuthenticated: token,
-        username,
+        isAuthenticated: action.payload.token,
+        user: action.payload.user,
         loading: false,
       };
     case LOGIN_FAILURE:
@@ -33,6 +38,15 @@ export const authReducer = (state = INITIAL_STATE, action) => {
       return {
         ...INITIAL_STATE,
       };
+    case UPDATE_USER: //return state, for user object user curr user or empty object
+      return {
+        ...state,
+        user: {
+          ...(state.user || {}),
+          ...action.payload,
+        },
+      };
+
     default:
       return state;
   }

@@ -5,6 +5,7 @@ export const LOGIN = "AUTH/LOGIN";
 export const LOGIN_SUCCESS = "AUTH/LOGIN_SUCCESS";
 export const LOGIN_FAILURE = "AUTH/LOGIN_FAILURE";
 export const LOGOUT = "AUTH/LOGOUT";
+export const UPDATE_USER = "AUTH/UPDATE_USER";
 
 /*
  AUTH ACTIONS (this is a thunk....)
@@ -14,10 +15,12 @@ export const LOGOUT = "AUTH/LOGOUT";
 export const login = (credentials) => async (dispatch, getState) => {
   try {
     dispatch({ type: LOGIN });
-    const payload = await api.login(credentials);
-    // ℹ️ℹ️This is how you would debug the response to a requestℹ️ℹ️
-    console.log({ credentials });
-    dispatch({ type: LOGIN_SUCCESS, payload });
+    const loginResult = await api.login(credentials);
+    const picResult = await api.loginGetUserPicture(credentials.username);
+    dispatch({
+      type: LOGIN_SUCCESS,
+      payload: { token: loginResult.token, user: picResult.user },
+    });
   } catch (err) {
     dispatch({
       type: LOGIN_FAILURE,
@@ -52,6 +55,30 @@ export const logout = () => async (dispatch, getState) => {
      * Let the reducer know that we are logged out
      */
     dispatch({ type: LOGOUT });
+    // From Instructor Vince
   }
 };
-// END AUTH ACTIONS
+export const updateUser = (updates) => async (dispatch, getState) => {
+  //  const newUser = { ...getState().auth.user, ...updates };
+  await api.updateUser(getState().auth.user.username, updates);
+  dispatch({
+    type: UPDATE_USER,
+    payload: updates,
+  });
+};
+
+export const uploadPhoto = (photo) => (dispatch, getState) => {
+  return api
+    .uploadPhoto(getState().auth.user.username, photo)
+    .then((res) => api.loginGetUserPicture(getState().auth.user.username))
+    .then((data) => {
+      dispatch({
+        type: UPDATE_USER,
+        payload: data.user,
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      throw err;
+    });
+};

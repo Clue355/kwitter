@@ -37,21 +37,30 @@ class API {
 
   async login({ username, password }) {
     try {
-      const result = await this.axiosInstance
+      return await this.axiosInstance
         .post("/auth/login", {
           username,
           password,
         })
         .then((response) => {
-          //added code starts here
-          console.log(response);
           return response;
         });
-      return result;
     } catch (err) {
       // Instructor is logging you out because this failed
       helpMeInstructor(err);
-      return err;
+      // returning an error from a catch is BAD.. he punk'd us
+      throw err;
+    }
+  }
+
+  // TODO
+  async loginGetUserPicture(username) {
+    try {
+      return await this.axiosInstance.get(`/users/${username}`);
+    } catch (err) {
+      // Instructor is logging you out because this failed
+      helpMeInstructor(err);
+      throw err;
     }
   }
 
@@ -72,28 +81,44 @@ class API {
     } catch (err) {
       // Instructor is logging you out because this failed
       helpMeInstructor(err);
-      return err;
+      throw err;
     }
   }
 
   async profile(username) {
     try {
-      return await this.axiosInstance
-        .get(`/users/${username}`);
+      return await this.axiosInstance.get(`/users/${username}`);
     } catch (err) {
       // Instructor is logging you out because this failed
       helpMeInstructor(err);
-      return err;
+      throw err;
     }
   }
-
 
   async logout() {
     try {
       await this.axiosInstance.get("/auth/logout");
     } catch (err) {
       helpMeInstructor(err);
-      return err;
+      throw err;
+    }
+  }
+
+  async uploadPhoto(username, photo) {
+    try {
+      // FormData is needed for binary data
+      const data = new FormData();
+      data.append("picture", photo);
+      await this.axiosInstance.put(`/users/${username}/picture`, data);
+    } catch (err) {
+      helpMeInstructor(err);
+    }
+  }
+  async updateUser(username, updates) {
+    try {
+      await this.axiosInstance.patch(`/users/${username}`, updates);
+    } catch (err) {
+      helpMeInstructor(err);
     }
   }
 }

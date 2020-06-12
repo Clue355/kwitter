@@ -19,9 +19,9 @@ export function ConnectedRoute({
   }
 
   // https://react-redux.js.org/api/hooks#useselector
-  const { isAuthenticated, username } = useSelector((state) => ({
-    username: state.auth.username,
+  const { isAuthenticated } = useSelector((state) => ({
     isAuthenticated: state.auth.isAuthenticated,
+    username: state.auth.username,
   }));
 
   if (redirectIfAuthenticated && isAuthenticated) {
@@ -31,7 +31,7 @@ export function ConnectedRoute({
         render={({ location }) => (
           <Redirect
             to={{
-              pathname: `/profiles/${username}`,
+              pathname: "/profile",
               state: { from: location },
             }}
           />
