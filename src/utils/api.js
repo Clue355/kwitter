@@ -53,9 +53,8 @@ class API {
   async getMessage() {
     try {
       const result = await this.axiosInstance
-        .get("messages?limit=100&offset=0", {})
+        .get("/messages?limit=100&offset=0")
         .then((response) => {
-          //added code starts here
           console.log(response);
           return response;
         });

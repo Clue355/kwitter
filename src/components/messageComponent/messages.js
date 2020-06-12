@@ -1,14 +1,24 @@
 import React, { useState } from "react";
 import ProptTypes from "prop-types";
 import { Loader } from "../loader";
+// import { getMessages } from "../../redux/actions/messageAction";
 
-export const MessagesFeed = ({ loading, error }) => {
+export const MessagesFeed = ({ messages, getMessages, loading, error }) => {
   // Not to be confused with "this.setState" in classes
-  const [setState] = useState({
+  const [state, setState] = useState({
     feed: [],
   });
 
-  return <React.Fragment>{loading && <Loader />}</React.Fragment>;
+  return (
+    <React.Fragment>
+      <div class="messageFeed">
+        {messages.map((message) => {
+          return <p>{message.text}</p>;
+        })}
+      </div>
+      {loading && <Loader />}
+    </React.Fragment>
+  );
 };
 
 MessagesFeed.propTypes = {
