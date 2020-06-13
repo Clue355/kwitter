@@ -4,10 +4,11 @@ import { Container } from "react-bootstrap";
 import { MenuContainer } from "../menu";
 import {
   HomeScreen,
-  ProfileScreen,
+  //ProfileScreen,
   NotFoundScreen,
-  ProfilePageScreen,
+  ProfileScreen,
   MessagesScreen,
+  LandingPageContainer,
 } from "../../screens";
 import { ConnectedRoute } from "../connected-route/ConnectedRoute";
 
@@ -26,13 +27,19 @@ export const Navigation = () => (
           exact
           isProtected
           path="/profiles/:username"
-          component={ProfileScreen}
+          component={LandingPageContainer}
+        />
+        <ConnectedRoute
+          exact
+          isProtected
+          path="/home"
+          component={LandingPageContainer}
         />
         <ConnectedRoute
           exact
           isProtected
           path="/profile"
-          component={ProfilePageScreen}
+          component={ProfileScreen}
         />
         <ConnectedRoute
           exact

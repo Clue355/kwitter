@@ -11,7 +11,7 @@ export const MessagesFeed = ({ messages, getMessages, loading, error }) => {
 
   return (
     <React.Fragment>
-      <div className="messageFeed">
+      <div class="messageFeed">
         {messages.map((message) => {
           return <p>{message.text}</p>;
         })}
