@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import ProptTypes from "prop-types";
 import { Loader } from "../loader";
-// import { getMessages } from "../../redux/actions/messageAction";
+//import { getMessages } from "../../redux/actions/messageAction";
 
 export const MessagesFeed = ({
   toggleMessageLike,

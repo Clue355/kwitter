@@ -6,9 +6,6 @@ export const ProfileCard = (props) => {
   console.log(props);
   return (
     <>
-      <h1>Hi {props.user.username} !</h1>
-
-      <h2>{props.user.about}</h2>
       <Card style={{ width: "18rem" }}>
         {props.user.pictureLocation && (
           <Card.Img
