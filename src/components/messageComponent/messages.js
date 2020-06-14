@@ -48,19 +48,23 @@ export const MessagesFeed = ({
         </Form.Group>
         <Button variant="outline-primary">Create Post</Button>{" "}
       </Card>
-      <div>
+      <div claseName="messageContainer">
         {messages.map((message) => {
           return (
-            <p key={message.id}>
-              {message.text}
-              <button
+            <div key={message.id} className="message">
+              <p className="messsageText">{message.text}</p>
+              <Button
+                variant="outline-primary"
                 onClick={() => {
                   toggleMessageLike(message.id);
                 }}
+                className="button"
               >
-                {message.isLiked ? "dislike" : "like"}
-              </button>
-            </p>
+                <p className="buttonText">
+                  {message.isLiked ? "unlike" : "like"}
+                </p>
+              </Button>
+            </div>
           );
         })}
       </div>

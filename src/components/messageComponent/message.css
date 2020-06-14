@@ -1,0 +1,36 @@
+.messageContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.message {
+  position: relative;
+  width: 300px;
+  height: 100px;
+  border: 1px solid black;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+p {
+  padding-top: 30px;
+  font-size: smaller;
+}
+
+.button {
+  font-size: small;
+  width: 50px;
+  height: 30px;
+  position: absolute;
+  right: 1px;
+  bottom: 1px;
+  box-sizing: border-box;
+}
+
+.buttonText {
+  font-size: smaller;
+  padding: 0;
+}
