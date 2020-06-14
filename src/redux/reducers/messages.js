@@ -39,14 +39,14 @@ export const messageReducer = (state = initialState, action) => {
             return message;
           }
           const isLiked = message.likes.find((like) => {
-            return like === action.payload.username;
+            return like.username === action.payload.username;
           });
-
+          console.log("toggling message", message.id, message.likes);
           return {
             ...message,
             likes: isLiked
               ? message.likes.filter((like) => like !== isLiked)
-              : [...message.likes, action.payload.username],
+              : [...message.likes, { username: action.payload.username }],
           };
         }),
       };

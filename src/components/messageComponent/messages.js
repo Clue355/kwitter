@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import ProptTypes from "prop-types";
 import { Loader } from "../loader";
 // import { getMessages } from "../../redux/actions/messageAction";
@@ -11,7 +11,9 @@ export const MessagesFeed = ({
   error,
 }) => {
   // Not to be confused with "this.setState" in classes
-
+  useEffect(() => {
+    getMessages();
+  }, []);
   return (
     <React.Fragment>
       <div>
@@ -23,7 +25,9 @@ export const MessagesFeed = ({
                 onClick={() => {
                   toggleMessageLike(message.id);
                 }}
-              ></button>
+              >
+                {message.likes.length ? "dislike" : "like"}
+              </button>
             </p>
           );
         })}

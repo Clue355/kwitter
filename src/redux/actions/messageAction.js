@@ -23,6 +23,6 @@ export const getMessages = () => async (dispatch, getState) => {
 export const toggleMessageLike = (messageId) => async (dispatch, getState) => {
   dispatch({
     type: MESSAGE_TOGGLE,
-    payload: { messageId, username: getState().auth.username },
+    payload: { messageId, username: getState().auth.user.username },
   });
 };
