@@ -96,7 +96,7 @@ class API {
   }
 
   //get a list of messages
-  async getMessage() {
+  async getMessages() {
     try {
       const result = await this.axiosInstance
         .get("/messages?limit=100&offset=0")
@@ -155,10 +155,10 @@ class API {
   //   }
   // }
 
-  async addLike(id) {
+  async addLike(messageId) {
     try {
       const result = await this.axiosInstance
-        .post("/likes", { messageId: id })
+        .post("/likes", { messageId })
         .then((response) => {
           console.log(response);
           return response;

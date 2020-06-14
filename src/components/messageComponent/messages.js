@@ -26,7 +26,7 @@ export const MessagesFeed = ({
                   toggleMessageLike(message.id);
                 }}
               >
-                {message.likes.length ? "dislike" : "like"}
+                {message.isLiked ? "dislike" : "like"}
               </button>
             </p>
           );
