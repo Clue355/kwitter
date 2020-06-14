@@ -109,11 +109,14 @@ class API {
   //   }
   // }
 
-  async addLike() {
+  async addLike(id) {
     try {
-      const result = await this.axiosInstance.post("likes").then((response) => {
-        console.log(response);
-      });
+      const result = await this.axiosInstance
+        .post("/likes", { messageId: id })
+        .then((response) => {
+          console.log(response);
+          return response;
+        });
       return result;
     } catch (err) {
       helpMeInstructor(err);
@@ -121,12 +124,13 @@ class API {
     }
   }
 
-  async removeLike() {
+  async removeLike(id) {
     try {
       const result = await this.axiosInstance
-        .delete("likes")
+        .delete(`/likes/${id}`)
         .then((response) => {
           console.log(response);
+          return response;
         });
       return result;
     } catch (err) {
