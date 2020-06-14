@@ -1,7 +1,16 @@
+:root {
+  color: #438a5e;
+}
+
 body {
-    background-image: url("/images/ufobackground.png");
+  background-image: url("/images/ufobackground.png");
 }
 
 container {
-    background-image: url("/images/ufobackground.png");
+  background-image: url("/images/ufobackground.png");
+}
+
+.jumbotron {
+  background-color: #bac964;
+  color: #438a5e;
 }

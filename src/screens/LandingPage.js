@@ -4,7 +4,7 @@ import { ProfileCardContainer } from "../components";
 
 export const LandingPageContainer = () => (
   <>
-    <Jumbotron fluid>
+    <Jumbotron className="jumbotron" fluid>
       <h1>Everything Alien</h1>
     </Jumbotron>
     <h1>Testing</h1>

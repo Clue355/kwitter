@@ -4,6 +4,7 @@ import * as serviceWorker from "./serviceWorker";
 import { App } from "./App";
 // https://react-bootstrap.github.io/getting-started/introduction
 import "bootstrap/dist/css/bootstrap.min.css";
+import index from "./index.css";
 
 render(
   <React.StrictMode>
