@@ -4,12 +4,30 @@ import { Form, Button } from "react-bootstrap";
 import { Loader } from "../loader";
 import "./LoginForm.css";
 
-export const LoginForm = ({ login, loading, error }) => {
+export const LoginForm = ({ login, loading, error, googleOAuthLogin }) => {
   // Not to be confused with "this.setState" in classes
   const [state, setState] = useState({
     username: "",
     password: "",
   });
+
+  const signInUserWithGoogle = (event) => {
+    event.preventDefault();
+    const authWindow = window.open(
+      "https://kwitter-api.herokuapp.com/auth/google/login",
+      "_blank",
+      "width=500",
+      "length=500"
+    );
+    authWindow.window.opener.onmessage = (event) => {
+      authWindow.close();
+      if (!event || !event.data || !event.data.token) {
+        //google login failure, dispatch on action here
+        return;
+      }
+      googleOAuthLogin(event.data);
+    };
+  };
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -61,6 +79,9 @@ export const LoginForm = ({ login, loading, error }) => {
         </Form.Group>
         <Button variant="primary" type="submit" disabled={loading}>
           Submit
+        </Button>
+        <Button variant="primary" onClick={signInUserWithGoogle}>
+          Sign in With Google
         </Button>
       </Form>
       {error && <p style={{ color: "red" }}>{error.message}</p>}

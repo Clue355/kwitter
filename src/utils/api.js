@@ -190,7 +190,6 @@ class API {
       await this.axiosInstance.get("/auth/logout");
     } catch (err) {
       helpMeInstructor(err);
-      throw err;
     }
   }
 

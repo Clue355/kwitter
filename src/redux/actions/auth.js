@@ -29,6 +29,22 @@ export const login = (credentials) => async (dispatch, getState) => {
   }
 };
 
+export const googleOAuthLogin = (payload) => async (dispatch) => {
+  try {
+    dispatch({ type: LOGIN });
+
+    const picResult = await api.loginGetUserPicture(payload.username);
+    dispatch({
+      type: LOGIN_SUCCESS,
+      payload: { token: payload.token, user: picResult.user },
+    });
+  } catch (err) {
+    dispatch({
+      type: LOGIN_FAILURE,
+      payload: err.message,
+    });
+  }
+};
 export const register = (credentials) => async (dispatch, getState) => {
   try {
     await api.register(credentials);
