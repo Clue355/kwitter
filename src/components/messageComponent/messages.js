@@ -1,6 +1,9 @@
 import React, { useEffect } from "react";
 import ProptTypes from "prop-types";
 import { Loader } from "../loader";
+import "./message.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Button from "react-bootstrap/Button";
 // import { getMessages } from "../../redux/actions/messageAction";
 
 export const MessagesFeed = ({
@@ -16,19 +19,23 @@ export const MessagesFeed = ({
   }, []);
   return (
     <React.Fragment>
-      <div>
+      <div className="messageContainer">
         {messages.map((message) => {
           return (
-            <p key={message.id}>
-              {message.text}
-              <button
+            <div key={message.id} className="message">
+              <p className="messsageText">{message.text}</p>
+              <Button
+                variant="outline-primary"
                 onClick={() => {
                   toggleMessageLike(message.id);
                 }}
+                className="button"
               >
-                {message.isLiked ? "dislike" : "like"}
-              </button>
-            </p>
+                <p className="buttonText">
+                  {message.isLiked ? "unlike" : "like"}
+                </p>
+              </Button>
+            </div>
           );
         })}
       </div>
