@@ -111,13 +111,13 @@ class API {
     }
   }
 
-  // create a message
-  async postMessages(text) {
+  async newPost(text) {
     try {
       const result = await this.axiosInstance
         .post("/messages", { text })
         .then((response) => {
           console.log(response);
+          return response;
         });
       return result;
     } catch (err) {
@@ -140,20 +140,6 @@ class API {
       return err;
     }
   }
-
-  //delete a message
-  // async deleteMessages ({}) {
-  //   try {
-  //     const result = await this.axiosInstance.delete('/messages/messageid')
-  //     .then((response) => {
-  //       console.log(response)
-  //     })
-  //     return result
-  //   } catch (err) {
-  //     helpMeInstructor(err)
-  //       return err
-  //   }
-  // }
 
   async addLike(messageId) {
     try {
