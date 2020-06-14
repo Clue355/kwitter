@@ -1,8 +1,9 @@
 import api from "../../utils/api";
 
-export const GET_MESSAGES = "GET_MESSAGES"
-export const MESSAGE_SUCCESS = "MESSAGE_SUCCESS"
-export const MESSAGE_FAILURE = "MESSAGE_FAILURE"
+export const GET_MESSAGES = "GET_MESSAGES";
+export const MESSAGE_SUCCESS = "MESSAGE_SUCCESS";
+export const MESSAGE_FAILURE = "MESSAGE_FAILURE";
+export const MESSAGE_TOGGLE = "MESSAGE_TOGGLE";
 
 export const getMessages = () => async (dispatch, getState) => {
   try {
@@ -17,4 +18,11 @@ export const getMessages = () => async (dispatch, getState) => {
       payload: err.message,
     });
   }
+};
+
+export const toggleMessageLike = (messageId) => async (dispatch, getState) => {
+  dispatch({
+    type: MESSAGE_TOGGLE,
+    payload: { messageId, username: getState().auth.username },
+  });
 };

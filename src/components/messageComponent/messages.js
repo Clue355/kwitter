@@ -3,17 +3,29 @@ import ProptTypes from "prop-types";
 import { Loader } from "../loader";
 // import { getMessages } from "../../redux/actions/messageAction";
 
-export const MessagesFeed = ({ messages, getMessages, loading, error }) => {
+export const MessagesFeed = ({
+  toggleMessageLike,
+  messages,
+  getMessages,
+  loading,
+  error,
+}) => {
   // Not to be confused with "this.setState" in classes
-  const [state, setState] = useState({
-    feed: [],
-  });
 
   return (
     <React.Fragment>
-      <div class="messageFeed">
+      <div>
         {messages.map((message) => {
-          return <p>{message.text}</p>;
+          return (
+            <p key={message.id}>
+              {message.text}
+              <button
+                onClick={() => {
+                  toggleMessageLike(message.id);
+                }}
+              ></button>
+            </p>
+          );
         })}
       </div>
       {loading && <Loader />}
