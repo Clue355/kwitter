@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ProptTypes from "prop-types";
+import { Form, Button } from "react-bootstrap";
 import { Loader } from "../loader";
 import "./RegistrationForm.css";
 
@@ -14,7 +15,7 @@ export const RegistrationForm = ({ register, login, loading, error }) => {
   const handleRegister = async (event) => {
     event.preventDefault();
     await register(state);
-    //await login(state); //Figure out why this doesnt work*
+    await login(state);
   };
 
   const handleChange = (event) => {
@@ -23,16 +24,68 @@ export const RegistrationForm = ({ register, login, loading, error }) => {
     setState((prevState) => ({ ...prevState, [inputName]: inputValue }));
   };
 
+  if (loading) {
+    return <Loader />;
+  }
+
   return (
-    <React.Fragment>
+    <>
       <h1>New to Kwitter? Sign up here:</h1>
-      <form id="registration-form" onSubmit={handleRegister}>
+      <Form onSubmit={handleRegister}>
+        <Form.Group>
+          <Form.Label>Username</Form.Label>
+          <Form.Control
+            id="formRegisterDisplaName"
+            placeholder="Enter your display name"
+            type="text"
+            name="displayName"
+            value={state.displayName}
+            required
+            onChange={handleChange}
+          />
+          <Form.Text className="text-muted">
+            What should others call you?.
+          </Form.Text>
+        </Form.Group>
+        <Form.Group>
+          <Form.Label>Username</Form.Label>
+          <Form.Control
+            id="formRegisterUsername"
+            placeholder="Enter your username"
+            type="text"
+            name="username"
+            value={state.username}
+            required
+            onChange={handleChange}
+          />
+          <Form.Text className="text-muted">
+            This must be unique between accounts.
+          </Form.Text>
+        </Form.Group>
+
+        <Form.Group>
+          <Form.Label>Password</Form.Label>
+          <Form.Control
+            id="formRegisterPassword"
+            type="password"
+            placeholder="Password"
+            name="password"
+            value={state.password}
+            required
+            onChange={handleChange}
+          />
+        </Form.Group>
+        <Button variant="primary" type="submit" disabled={loading}>
+          Submit
+        </Button>
+      </Form>
+      {error && <p style={{ color: "red" }}>{error.message}</p>}
+      {/* <form id="registration-form" onSubmit={handleRegister}>
         <label htmlFor="displayName">Display name</label>
         <input
           type="text"
           name="displayName"
           value={state.displayName}
-          autoFocus
           required
           onChange={handleChange}
         />
@@ -41,7 +94,6 @@ export const RegistrationForm = ({ register, login, loading, error }) => {
           type="text"
           name="username"
           value={state.username}
-          autoFocus
           required
           onChange={handleChange}
         />
@@ -56,10 +108,9 @@ export const RegistrationForm = ({ register, login, loading, error }) => {
         <button type="submit" disabled={loading}>
           Register
         </button>
-      </form>
-      {loading && <Loader />}
+      </form> */}
       {error && <p style={{ color: "red" }}>{error.message}</p>}
-    </React.Fragment>
+    </>
   );
 };
 

@@ -20,8 +20,8 @@ export function ConnectedRoute({
 
   // https://react-redux.js.org/api/hooks#useselector
   const { isAuthenticated, username } = useSelector((state) => ({
-    username: state.auth.username,
     isAuthenticated: state.auth.isAuthenticated,
+    username: state.auth.username,
   }));
 
   if (redirectIfAuthenticated && isAuthenticated) {

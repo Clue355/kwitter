@@ -3,12 +3,14 @@ import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { Navigation } from "./components";
 import configureStore from "./redux/configureStore";
+import api from "./utils/api";
 
 const { store, persistor } = configureStore();
 
 const KWITTER = {
   store,
   persistor,
+  api,
 };
 
 window.KWITTER = KWITTER;

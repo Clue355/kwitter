@@ -1,15 +1,14 @@
 import React from "react";
-import { ProfileCardContainer, ProfilePageContainer } from "../components";
 import { Jumbotron } from "react-bootstrap";
+import { ProfileCardContainer } from "../components";
 
-export const ProfileScreen = () => (
+export const LandingPageContainer = () => (
   <>
-    <Jumbotron fluid>
+    <Jumbotron className="jumbotron" fluid>
       <h1>Everything Alien</h1>
     </Jumbotron>
-    <h1>Testing2</h1>
+    <h1>Testing</h1>
     <h2>Profile</h2>
     <ProfileCardContainer />
-    <ProfilePageContainer />
   </>
 );
