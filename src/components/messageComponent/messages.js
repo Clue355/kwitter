@@ -2,6 +2,19 @@ import React, { useEffect } from "react";
 import ProptTypes from "prop-types";
 import { Loader } from "../loader";
 //import { getMessages } from "../../redux/actions/messageAction";
+import { Card, Button, Form } from "react-bootstrap";
+
+// handlePost = (event) => {
+//   if ((event.key === "Enter") & (event.target.value !== null)) {
+//     this.props.postMessage(this.state.text, this.props.token);
+//     event.target.value = null;
+//     this.setState({ text: "", open: false });
+//   }
+// };
+
+// handleChange = (event) => {
+//   this.setState({ text: event.target.value });
+// };
 
 export const MessagesFeed = ({
   toggleMessageLike,
@@ -16,6 +29,19 @@ export const MessagesFeed = ({
   }, []);
   return (
     <React.Fragment>
+      <Card fluid>
+        {/* <TextArea
+          autoFocus="true"
+          onChange={this.handleChange}
+          onKeyPress={this.handlePost}
+          placeholder="New Kweet"
+        /> */}
+        <Form.Group controlId="exampleForm.ControlTextarea1">
+          <Form.Label>New Post</Form.Label>
+          <Form.Control as="textarea" rows="3" />
+        </Form.Group>
+        <Button variant="outline-primary">Create Post</Button>{" "}
+      </Card>
       <div>
         {messages.map((message) => {
           return (
