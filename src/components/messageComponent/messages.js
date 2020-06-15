@@ -3,6 +3,7 @@ import ProptTypes from "prop-types";
 import { Loader } from "../loader";
 import { Button } from "react-bootstrap";
 import "./message.css";
+import { Card } from "react-bootstrap";
 
 export const MessagesFeed = ({
   toggleMessageLike,
@@ -17,26 +18,28 @@ export const MessagesFeed = ({
 
   return (
     <React.Fragment>
-      <div className="messageContainer">
-        {messages.map((message) => {
-          return (
-            <div key={message.id} className="message">
-              <p className="messsageText">{message.text}</p>
-              <Button
-                variant="outline-primary"
-                onClick={() => {
-                  toggleMessageLike(message.id);
-                }}
-                className="button"
-              >
-                <p className="buttonText">
-                  {message.isLiked ? "unlike" : "like"}
-                </p>
-              </Button>
-            </div>
-          );
-        })}
-      </div>
+      <Card fluid>
+        <div className="messageContainer">
+          {messages.map((message) => {
+            return (
+              <div key={message.id} className="message">
+                <p className="messsageText">{message.text}</p>
+                <Button
+                  variant="outline-primary"
+                  onClick={() => {
+                    toggleMessageLike(message.id);
+                  }}
+                  className="button"
+                >
+                  <p className="buttonText">
+                    {message.isLiked ? "unlike" : "like"}
+                  </p>
+                </Button>
+              </div>
+            );
+          })}
+        </div>
+      </Card>
       {loading && <Loader />}
     </React.Fragment>
   );

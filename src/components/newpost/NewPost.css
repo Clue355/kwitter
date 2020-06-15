@@ -1,11 +1,11 @@
-.messageContainer {
+.newPostContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.message {
+.newpost {
   position: relative;
   width: 300px;
   height: 100px;
