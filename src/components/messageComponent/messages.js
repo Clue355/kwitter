@@ -18,28 +18,6 @@ export const MessagesFeed = ({
 
   return (
     <React.Fragment>
-<<<<<<< HEAD
-      <div className="messageContainer">
-        {messages.map((message) => {
-          return (
-            <div key={message.id} className="message">
-              <p className="messsageText">{message.text}</p>
-              <Button
-                variant="outline-primary"
-                onClick={() => {
-                  toggleMessageLike(message.id);
-                }}
-                className="button"
-              >
-                <p className="buttonText">
-                  {message.isLiked ? "liked" : "like"}
-                </p>
-              </Button>
-            </div>
-          );
-        })}
-      </div>
-=======
       <Card fluid>
         <div className="messageContainer">
           {messages.map((message) => {
@@ -62,7 +40,6 @@ export const MessagesFeed = ({
           })}
         </div>
       </Card>
->>>>>>> newpost-feature
       {loading && <Loader />}
     </React.Fragment>
   );
