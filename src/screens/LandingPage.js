@@ -6,7 +6,7 @@ import { NewPostContainer } from "../components/newpost";
 
 export const LandingPageContainer = () => (
   <>
-    <Jumbotron className="jumbotron" fluid>
+    <Jumbotron>
       <h1>Everything Alien</h1>
     </Jumbotron>
     <Row>
