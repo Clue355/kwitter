@@ -63,15 +63,10 @@ export const profile = (data) => async (dispatch, getState) => {
 
 export const logout = () => async (dispatch, getState) => {
   try {
-    // We do not care about the result of logging out
-    // as long as it succeeds
     await api.logout();
   } finally {
-    /**
-     * Let the reducer know that we are logged out
-     */
     dispatch({ type: LOGOUT });
-    // From Instructor Vince
+    localStorage.clear();
   }
 };
 export const updateUser = (updates) => async (dispatch, getState) => {

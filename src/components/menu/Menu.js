@@ -11,7 +11,7 @@ export const Menu = ({ isAuthenticated, logout }) => {
       {isAuthenticated && (
         <Nav className="mr-auto">
           <Nav.Link href="/home">Home</Nav.Link>
-          <Nav.Link href="/profile">Profile</Nav.Link>
+          <Nav.Link href="/profile">Update Profile</Nav.Link>
           <Nav.Link href="/messagefeed">Message Feed</Nav.Link>
           <Link to="/" onClick={logout}>
             Logout

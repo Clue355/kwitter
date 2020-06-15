@@ -5,7 +5,7 @@ import { RegistrationContainer } from "../components/registration-form";
 
 export const HomeScreen = () => (
   <>
-    <Jumbotron fluid>
+    <Jumbotron>
       <h1>Everything Alien</h1>
     </Jumbotron>
     <Row>

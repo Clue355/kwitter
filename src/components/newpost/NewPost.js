@@ -16,7 +16,7 @@ export const NewPost = ({ newPost }) => {
 
   return (
     <React.Fragment>
-      <Card fluid>
+      <Card bg="dark" variant="dark">
         <Form.Group
           controlId="exampleForm.ControlTextarea1"
           className="newpost"
@@ -31,7 +31,7 @@ export const NewPost = ({ newPost }) => {
             rows="3"
           />
         </Form.Group>
-        <Button onClick={handleNewPost} variant="outline-primary">
+        <Button bg="dark" variant="dark" onClick={handleNewPost}>
           Create Post
         </Button>{" "}
       </Card>

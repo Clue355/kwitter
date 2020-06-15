@@ -1,6 +1,5 @@
 import React, { useState, useRef } from "react";
 import "./ProfileCard.css";
-
 import { Button, Container, Card } from "react-bootstrap";
 
 // https://react-bootstrap.github.io/getting-started/introduction
@@ -45,18 +44,33 @@ export const ProfilePage = (props) => {
   return (
     <>
       <Container>
-        <Card>
+        <Card style={{ width: "45rem" }}>
+          <h3>
+            {" "}
+            Click 'Choose File' to Update Profile Picture, then "Save Profile to
+            Upload{" "}
+          </h3>
+          <h6>Note:Pic must be less than 200mb</h6>
+          <br />
           <form onSubmit={submitForm}>
+            <br />
             <input onChange={updatePicture} type="file" name="picture" />
+            <br />
+            <br />
+            <h2>Tell Us About Yourself</h2>
+
+            <br />
             <textarea
               defaultValue={props.user.about || ""}
               ref={bioRef}
               placeholder="Enter Bio"
             />
+            <br />
             <Button type="submit">Save Profile</Button>
           </form>
           {props.user.pictureLocation && (
-            <img
+            <Card.Img
+              variant="top"
               alt=""
               src={
                 "http://kwitter-api.herokuapp.com" + props.user.pictureLocation
@@ -65,17 +79,6 @@ export const ProfilePage = (props) => {
             />
           )}
           {unableToUpload && <p style={{ color: "red" }}>{unableToUpload}</p>}
-        </Card>
-        <Card style={{ width: "18rem" }}>
-          <Card.Img variant="top" src="holder.js/100px180" />
-          <Card.Body>
-            <Card.Title>Card Title</Card.Title>
-            <Card.Text>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </Card.Text>
-            <Button variant="primary">Go somewhere</Button>
-          </Card.Body>
         </Card>
       </Container>
     </>
