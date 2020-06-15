@@ -1,12 +1,10 @@
 import React from "react";
 import { ProfilePageContainer } from "../components";
-import { Jumbotron } from "react-bootstrap";
+import { Header } from "../components/page_header/header";
 
 export const ProfileScreen = () => (
   <>
-    <Jumbotron fluid>
-      <h1>Everything Alien</h1>
-    </Jumbotron>
+    <Header />
 
     <ProfilePageContainer />
   </>

@@ -1,13 +1,12 @@
 import React from "react";
-import { Row, Jumbotron, Col } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import { LoginFormContainer } from "../components";
 import { RegistrationContainer } from "../components/registration-form";
+import { Header } from "../components/page_header/header";
 
 export const HomeScreen = () => (
   <>
-    <Jumbotron fluid>
-      <h1>Everything Alien</h1>
-    </Jumbotron>
+    <Header />
     <Row>
       <Col>
         <LoginFormContainer />

@@ -10,14 +10,14 @@ body {
 }
 
 .jumbotron {
-  background-color: #11999e;
-  color: #e4f9f5;
+  background-color: #393e46;
+  color: #32e0c4;
   font-family: "Major Mono Display", monospace;
 }
 
 .newpost {
-  background-color: #11999e;
-  color: #e4f9f5;
+  background-color: #393e46;
+  color: #32e0c4;
 }
 
 button {

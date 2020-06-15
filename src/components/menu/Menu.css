@@ -1,0 +1,23 @@
+.logout {
+  text-decoration: none;
+  color: grey;
+  padding-right: 10px;
+}
+
+.logout:hover {
+  text-decoration: none;
+  color: white;
+}
+
+.links {
+  color: #32e0c4;
+}
+
+.linespace {
+  color: #32e0c4;
+  padding-right: 10px;
+}
+
+.navbar {
+  background-color: #222831;
+}
