@@ -6,6 +6,7 @@
 
 body {
   background-image: url("/images/ufobackground.png");
+  font-family: "Major Mono Display", monospace;
 }
 
 .jumbotron {
