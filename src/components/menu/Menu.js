@@ -1,7 +1,7 @@
 import React from "react";
 import ProptTypes from "prop-types";
 import { Nav, Navbar } from "react-bootstrap";
-//import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Menu.css";
 
 export const Menu = ({ isAuthenticated, logout }) => {
@@ -13,9 +13,9 @@ export const Menu = ({ isAuthenticated, logout }) => {
           <Nav.Link href="/home">Home</Nav.Link>
           <Nav.Link href="/profile">Profile</Nav.Link>
           <Nav.Link href="/messagefeed">Message Feed</Nav.Link>
-          <Nav.Link exact href="/" onClick={logout}>
+          <Link to="/" onClick={logout}>
             Logout
-          </Nav.Link>
+          </Link>
         </Nav>
       )}
     </Navbar>
