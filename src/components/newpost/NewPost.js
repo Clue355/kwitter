@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ProptTypes from "prop-types";
 import { Card, Button, Form } from "react-bootstrap";
-import "./NewPost.css";
+//import "./NewPost.css";
 
 export const NewPost = ({ newPost }) => {
   const [state, setState] = useState("");

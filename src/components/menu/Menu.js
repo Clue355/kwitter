@@ -1,21 +1,21 @@
 import React from "react";
 import ProptTypes from "prop-types";
 import { Nav, Navbar } from "react-bootstrap";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 import "./Menu.css";
 
 export const Menu = ({ isAuthenticated, logout }) => {
   return (
     <Navbar bg="dark" variant="dark">
-      <Navbar.Brand href="/">Kwitter</Navbar.Brand>
+      <Navbar.Brand href="/">Everything Alien</Navbar.Brand>
       {isAuthenticated && (
         <Nav className="mr-auto">
-          <Link to="/home">Home</Link>
-          <Link to="/profile">Profile</Link>
-          <Link to="/messagefeed">Message Feed</Link>
-          <Link to="/" onClick={logout}>
+          <Nav.Link href="/home">Home</Nav.Link>
+          <Nav.Link href="/profile">Profile</Nav.Link>
+          <Nav.Link href="/messagefeed">Message Feed</Nav.Link>
+          <Nav.Link href="/" onClick={logout}>
             Logout
-          </Link>
+          </Nav.Link>
         </Nav>
       )}
     </Navbar>
