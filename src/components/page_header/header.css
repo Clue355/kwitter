@@ -1,0 +1,12 @@
+.headerContainer {
+  background-color: #393e46;
+  color: #eeeeee;
+  height: 2rem;
+  font-size: smaller;
+}
+
+.headerText {
+  font-size: smaller;
+  padding: 0;
+  padding-top: 5px;
+}

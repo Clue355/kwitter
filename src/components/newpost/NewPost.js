@@ -29,9 +29,11 @@ export const NewPost = ({ newPost }) => {
             className="newpost"
             as="textarea"
             rows="3"
-          />
+          >
+            Text Goes Here
+          </Form.Control>
         </Form.Group>
-        <Button bg="dark" variant="dark" onClick={handleNewPost}>
+        <Button onClick={handleNewPost} variant="outline-success">
           Create Post
         </Button>{" "}
       </Card>

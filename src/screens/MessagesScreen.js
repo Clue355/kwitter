@@ -1,13 +1,11 @@
 import React from "react";
-import { Jumbotron } from "react-bootstrap";
+import { Header } from "../components/page_header/header";
 import { MessagesContainer } from "../components/messageComponent/index";
 import { NewPostContainer } from "../components/newpost";
 
 export const MessagesScreen = () => (
   <>
-    <Jumbotron fluid>
-      <h1>Everything Alien</h1>
-    </Jumbotron>
+    <Header />
     <NewPostContainer />
     <MessagesContainer />
   </>

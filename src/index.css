@@ -1,18 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap");
+
 :root {
   color: #438a5e;
 }
 
 body {
-  background-image: url("/images/ufobackground.png");
+  background-image: url("images/alienfaces.png");
+  font-family: "Major Mono Display", monospace;
 }
 
 .jumbotron {
-  background-color: #bac964;
-  color: #438a5e;
+  background-color: #393e46;
+  color: #32e0c4;
+  font-family: "Major Mono Display", monospace;
 }
 
 .newpost {
-  color: #438a5e;
+  background-color: #393e46;
+  color: #32e0c4;
 }
 
 button {

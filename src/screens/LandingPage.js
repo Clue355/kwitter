@@ -1,14 +1,13 @@
 import React from "react";
-import { Row, Col, Jumbotron } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import { ProfileCardContainer } from "../components";
 import { MessagesContainer } from "../components/messageComponent/index";
 import { NewPostContainer } from "../components/newpost";
+import { Header } from "../components/page_header/header";
 
 export const LandingPageContainer = () => (
   <>
-    <Jumbotron className="jumbotron" fluid>
-      <h1>Everything Alien</h1>
-    </Jumbotron>
+    <Header />
     <Row>
       <Col>
         <ProfileCardContainer />

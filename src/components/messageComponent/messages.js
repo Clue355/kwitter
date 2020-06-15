@@ -25,7 +25,7 @@ export const MessagesFeed = ({
               <div key={message.id} className="message">
                 <p className="messsageText">{message.text}</p>
                 <Button
-                  variant="outline-primary"
+                  variant="outline-success"
                   onClick={() => {
                     toggleMessageLike(message.id);
                   }}

@@ -6,14 +6,23 @@ import "./Menu.css";
 
 export const Menu = ({ isAuthenticated, logout }) => {
   return (
-    <Navbar bg="dark" variant="dark">
+    <Navbar bg="navbar" variant="dark">
       <Navbar.Brand href="/">Everything Alien</Navbar.Brand>
       {isAuthenticated && (
         <Nav className="mr-auto">
-          <Nav.Link href="/home">Home</Nav.Link>
-          <Nav.Link href="/profile">Update Profile</Nav.Link>
-          <Nav.Link href="/messagefeed">Message Feed</Nav.Link>
-          <Link to="/" onClick={logout}>
+          <Link className="logout links" to="/home" href="/home">
+            Home
+          </Link>
+          <div className="linespace">|</div>
+          <Link className="logout links" to="/profile" href="/profile">
+            Profile
+          </Link>
+          <div className="linespace">|</div>
+          <Link className="logout links" to="/messagefeed" href="/messagefeed">
+            Message Feed
+          </Link>
+          <div className="linespace">|</div>
+          <Link className="logout links" to="/" onClick={logout}>
             Logout
           </Link>
         </Nav>
