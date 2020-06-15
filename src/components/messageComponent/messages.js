@@ -23,18 +23,23 @@ export const MessagesFeed = ({
           {messages.map((message) => {
             return (
               <div key={message.id} className="message">
-                <p className="messsageText">{message.text}</p>
-                <Button
-                  variant="outline-success"
-                  onClick={() => {
-                    toggleMessageLike(message.id);
-                  }}
-                  className="button"
-                >
-                  <p className="buttonText">
-                    {message.isLiked ? "unlike" : "like"}
-                  </p>
-                </Button>
+                <div>
+                  <p className="messageText">{message.text}</p>
+                </div>
+                <div className="mb-2">
+                  <Button
+                    variant="secondary"
+                    size="lg"
+                    onClick={() => {
+                      toggleMessageLike(message.id);
+                    }}
+                    className="button"
+                  >
+                    <p className="buttonText">
+                      {message.isLiked ? "unlike" : "like"}
+                    </p>
+                  </Button>{" "}
+                </div>
               </div>
             );
           })}

@@ -6,7 +6,6 @@ export const Header = () => {
     <>
       <div className="headerContainer">
         <p className="headerText">Newsfeed Incoming...</p>
-        <img alt="ship" src="src/images/ufobackground.png"></img>
       </div>
     </>
   );
