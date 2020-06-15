@@ -30,7 +30,7 @@ export const MessagesFeed = ({
                 className="button"
               >
                 <p className="buttonText">
-                  {message.isLiked ? "unlike" : "like"}
+                  {message.isLiked ? "liked" : "like"}
                 </p>
               </Button>
             </div>
