@@ -1,21 +1,17 @@
 import React, { useState } from "react";
 import ProptTypes from "prop-types";
-
 import { Card, Button, Form } from "react-bootstrap";
 import "./NewPost.css";
 
-export const NewPost = (newPost) => {
-  const [state, setState] = useState({
-    text: "",
-  });
-
-  const handleNewPost = (event, newPost) => {
+export const NewPost = ({ newPost }) => {
+  const [state, setState] = useState("");
+  const handleNewPost = (event) => {
     event.preventDefault();
     newPost(state);
   };
 
-  const handlePostChange = (event) => {
-    setState((prevState) => ({ ...prevState }));
+  const handleTextChange = (event) => {
+    setState(event.target.value);
   };
 
   return (
@@ -29,7 +25,7 @@ export const NewPost = (newPost) => {
             <h2>New Post</h2>
           </Form.Label>
           <Form.Control
-            onChange={handlePostChange}
+            onChange={handleTextChange}
             className="newpost"
             as="textarea"
             rows="3"
@@ -42,7 +38,6 @@ export const NewPost = (newPost) => {
     </React.Fragment>
   );
 };
-
 NewPost.propTypes = {
   newPost: ProptTypes.func.isRequired,
   loading: ProptTypes.bool,

@@ -5,7 +5,6 @@ import { newPost } from "../../redux/actions/newPost";
 const mapStateToProps = (state) => ({
   loading: state.auth.loading,
   error: state.auth.error,
-  newpost: state.newpost.text,
 });
 
 // https://react-redux.js.org/using-react-redux/connect-mapdispatch#connect-dispatching-actions-with-mapdispatchtoprops
