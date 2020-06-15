@@ -13,7 +13,7 @@ export const Menu = ({ isAuthenticated, logout }) => {
           <Nav.Link href="/home">Home</Nav.Link>
           <Nav.Link href="/profile">Profile</Nav.Link>
           <Nav.Link href="/messagefeed">Message Feed</Nav.Link>
-          <Nav.Link href="/" onClick={logout}>
+          <Nav.Link exact href="/" onClick={logout}>
             Logout
           </Nav.Link>
         </Nav>

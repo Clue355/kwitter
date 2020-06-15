@@ -1,6 +1,8 @@
 import React, { useState, useRef } from "react";
 import "./ProfileCard.css";
-import { Button } from "react-bootstrap";
+
+import { Button, Container, Card } from "react-bootstrap";
+
 // https://react-bootstrap.github.io/getting-started/introduction
 
 export const ProfilePage = (props) => {
@@ -42,23 +44,40 @@ export const ProfilePage = (props) => {
 
   return (
     <>
-      <form onSubmit={submitForm}>
-        <input onChange={updatePicture} type="file" name="picture" />
-        <textarea
-          defaultValue={props.user.about || ""}
-          ref={bioRef}
-          placeholder="Enter Bio"
-        />
-        <Button type="submit">Save Profile</Button>
-      </form>
-      {props.user.pictureLocation && (
-        <img
-          alt=""
-          src={"http://kwitter-api.herokuapp.com" + props.user.pictureLocation}
-          width="200px"
-        />
-      )}
-      {unableToUpload && <p style={{ color: "red" }}>{unableToUpload}</p>}
+      <Container>
+        <Card>
+          <form onSubmit={submitForm}>
+            <input onChange={updatePicture} type="file" name="picture" />
+            <textarea
+              defaultValue={props.user.about || ""}
+              ref={bioRef}
+              placeholder="Enter Bio"
+            />
+            <Button type="submit">Save Profile</Button>
+          </form>
+          {props.user.pictureLocation && (
+            <img
+              alt=""
+              src={
+                "http://kwitter-api.herokuapp.com" + props.user.pictureLocation
+              }
+              width="200px"
+            />
+          )}
+          {unableToUpload && <p style={{ color: "red" }}>{unableToUpload}</p>}
+        </Card>
+        <Card style={{ width: "18rem" }}>
+          <Card.Img variant="top" src="holder.js/100px180" />
+          <Card.Body>
+            <Card.Title>Card Title</Card.Title>
+            <Card.Text>
+              Some quick example text to build on the card title and make up the
+              bulk of the card's content.
+            </Card.Text>
+            <Button variant="primary">Go somewhere</Button>
+          </Card.Body>
+        </Card>
+      </Container>
     </>
   );
 };
