@@ -12,10 +12,17 @@ export const RegistrationForm = ({ register, login, loading, error }) => {
     password: "",
   });
 
+  const [registerError, setRegisterError] = useState("");
+
   const handleRegister = async (event) => {
     event.preventDefault();
-    await register(state);
-    await login(state);
+    try {
+      setRegisterError("");
+      await register(state);
+      await login(state);
+    } catch {
+      setRegisterError("Username must be Unique");
+    }
   };
 
   const handleChange = (event) => {
@@ -79,36 +86,7 @@ export const RegistrationForm = ({ register, login, loading, error }) => {
           Submit
         </Button>
       </Form>
-      {error && <p style={{ color: "red" }}>{error.message}</p>}
-      {/* <form id="registration-form" onSubmit={handleRegister}>
-        <label htmlFor="displayName">Display name</label>
-        <input
-          type="text"
-          name="displayName"
-          value={state.displayName}
-          required
-          onChange={handleChange}
-        />
-        <label htmlFor="username">Username</label>
-        <input
-          type="text"
-          name="username"
-          value={state.username}
-          required
-          onChange={handleChange}
-        />
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          name="password"
-          value={state.password}
-          required
-          onChange={handleChange}
-        />
-        <button type="submit" disabled={loading}>
-          Register
-        </button>
-      </form> */}
+      {registerError && <p style={{ color: "red" }}>{registerError}</p>}
       {error && <p style={{ color: "red" }}>{error.message}</p>}
     </>
   );

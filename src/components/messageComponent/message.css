@@ -2,14 +2,15 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 450px;
+  /* width: 450px; */
   flex-wrap: wrap;
 }
 
 .message {
   position: relative;
-  width: 400px;
-  height: 200px;
+  /* width: 400px;
+  height: 200px; */
+  width: 100%;
   border: 1px solid black;
   box-sizing: border-box;
   margin: 1rem auto 2rem auto;
