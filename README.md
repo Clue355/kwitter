@@ -7,14 +7,14 @@ Kwitter is a social media site where you can talk about anything alien related
 
 
 ## Technologies
--React JS
--Redux
--Swagger
--React Bootstrap
+- React JS
+- Redux
+- Swagger
+- React Bootstrap
 
 ## Contributors
--Carlos Luevano
--Bethsheba Zebata
+- Carlos Luevano
+- Bethsheba Zebata
 
 
 ## License
